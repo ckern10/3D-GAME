@@ -1,0 +1,25 @@
+from direct.showbase.ShowBase import ShowBase
+
+class MyApp(ShowBase):
+
+    def __init__(self):
+        ShowBase.__init__(self)
+
+    def SetupScene():
+
+        self.Universe = self.loader.loadModel("./Assets/universe/Universe/Universe.x")
+        self.Universe.reparentTo(self.render)
+        self.Universe.setScale(15000)
+        tex = self.loader.loadTexture("./Assets/universe/Universe/starfield-in-blue.jpg")
+        self.Universe.setTexture(tex, 1)
+
+
+        self.Planet1 = self.loader.loadModel("./Assets/planets/protoPlanet.x")
+        self.Planet1.reparentTo(self.render)
+        self.Planet1.setPos(150, 5000, 67)
+
+
+
+    
+app = MyApp()
+app.run()    
